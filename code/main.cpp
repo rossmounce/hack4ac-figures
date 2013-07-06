@@ -85,7 +85,7 @@ bool isMainlyVertical(Vec4i l){
 bool isMainlyHorizontal(Vec4i l){ return !(isMainlyVertical(l));}
 
 bool isStartingYAt(Vec4i l, double y, double fuzzy){
-	if (abs(l[0] - y) > fuzzy){
+	if (abs(l[3] - y) < fuzzy){
 		return true;
 	} else { 
 		return false;
@@ -145,14 +145,13 @@ int main( int argc, char** argv )
 				yaxis = (lines[i]);
 		} else {
 			if (0 == numhorz++)
-			xaxis = (lines[i]);
+				xaxis = (lines[i]);
 		}
 	}
-	
+	cout << "xaxis" << xaxis << endl;
+	cout << "yaxis" << yaxis << endl;
 	xaxis[0] = yaxis[0];
 	yaxis[3] = xaxis[3];
-	line(cdst, Point(xaxis[0], xaxis[1]), Point(xaxis[2], xaxis[3]), Scalar(0,255,255), 2, CV_AA);
-	line(cdst, Point(yaxis[0], yaxis[1]), Point(yaxis[2], yaxis[3]), Scalar(0,255,255), 2, CV_AA);
 
 	cout << "xaxis" << xaxis << endl;
 	cout << "yaxis" << yaxis << endl;
@@ -199,14 +198,16 @@ int main( int argc, char** argv )
 	verticalLines=tmp;
 	verticalLines.pop_back();
 
+	sort(verticalLines.begin(), verticalLines.end(), ismoreleft);
 	cout << "Number of Vertical Lines Within Axes " << verticalLines.size() << endl;
 	for(Vec4i l : verticalLines)
 	{
+		cout << l << endl;
 		line(cdst, Point(l[0], l[1]), Point(l[2], l[3]), Scalar(0,255,0), 2, CV_AA);
 	}
 	
 	vector <Vec4i> partsOfBars = filter(verticalLines
-			, bind(isStartingYAt, _1, xaxis[1],30)
+			, bind(isStartingYAt, _1, xaxis[3],10)
 
 			);
 
@@ -216,27 +217,34 @@ int main( int argc, char** argv )
 
 	for(Vec4i l : partsOfBars)
 	{
-		cout << l << endl;
+//		cout << l << endl;
 		line(cdst, Point(l[0], l[1]), Point(l[2], l[3]), Scalar(255,0,0), 2, CV_AA);
 	}
 
 
 	// Assuming Bar Charts 
 	cout << "The Bars:" << endl;
-	cout << "num" << '\t' << "Rel" << '\t' << "*0.6" << '\t' << "*1.2" << endl;
+	cout << "num" << '\t' << "Rel" << '\t' << "*0.6" << '\t' << "*1.2" << '\t' << "*25" << endl;
 
+	stringstream sstmp; 
+	sstmp << argv[2] << " " << argv[3] << endl;
+	double m, c;
+	sstmp >> m >> c;
 	for (size_t i = 0; i < partsOfBars.size(); i+=2){
 		Vec4i l = partsOfBars[i];
 		Vec4i r = partsOfBars[i+1];
 		double y = abs(((l[1] +double(r[1]))/2 - xaxis[1]) / double (yaxis[1]-xaxis[1]));
-		cout << i/2 << '\t' << y << '\t' << y*0.6<< '\t' << y *1.2 << endl;
+		cout << i/2 << '\t' << y << '\t' << y*0.6<< '\t' << y *1.2 << '\t' << y * 25 << endl;
 	}
 	
+	line(cdst, Point(xaxis[0], xaxis[1]), Point(xaxis[2], xaxis[3]), Scalar(0,255,255), 2, CV_AA);
+	line(cdst, Point(yaxis[0], yaxis[1]), Point(yaxis[2], yaxis[3]), Scalar(0,255,255), 2, CV_AA);
 	imshow("Display window", src);                   // Show our image inside it.
 	imshow("Detected Lines", cdst);
-	ResizeWindow("Display window",500,500);
-	ResizeWindow("Detected Lines",500,500);
-
+	//resizeWindow("Display window",500,500);
+	//resizeWindow("Detected Lines",500,500);
+	cvNamedWindow("Display window",CV_WINDOW_AUTOSIZE);
 	while(cv::waitKey(1) != 27);
+
 	return 0;
 }
