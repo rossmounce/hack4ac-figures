@@ -10,6 +10,6 @@ Thomas Branch (twighk),
 Peter Murray-Rust (petermr), 
 Ross Mounce (rossmounce)
 
-[![Picture](https://github.com/rossmounce/hack4ac-figures/blob/master/the-team.jpg)]
+[![Picture](https://github.com/rossmounce/hack4ac-figures/blob/master/the-team.jpg?raw=true)]
 
 Notes made during the hack: http://beta.etherpad.org/p/hack4ac_figures_to_data
