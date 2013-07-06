@@ -124,7 +124,7 @@ int main( int argc, char** argv )
 	for( size_t i = 0; i < lines.size(); i++ )
 	{
 		Vec4i l = lines[i];
-		cout << l << '\t' << linelength(l) <<   endl;
+//		cout << l << '\t' << linelength(l) <<   endl;
 		line(cdst, Point(l[0], l[1]), Point(l[2], l[3]), Scalar(0,0,100), 1, CV_AA);
 	}
 
@@ -148,8 +148,8 @@ int main( int argc, char** argv )
 				xaxis = (lines[i]);
 		}
 	}
-	cout << "xaxis" << xaxis << endl;
-	cout << "yaxis" << yaxis << endl;
+//	cout << "xaxis" << xaxis << endl;
+//	cout << "yaxis" << yaxis << endl;
 	xaxis[0] = yaxis[0];
 	yaxis[3] = xaxis[3];
 
@@ -202,7 +202,7 @@ int main( int argc, char** argv )
 	cout << "Number of Vertical Lines Within Axes " << verticalLines.size() << endl;
 	for(Vec4i l : verticalLines)
 	{
-		cout << l << endl;
+//		cout << l << endl;
 		line(cdst, Point(l[0], l[1]), Point(l[2], l[3]), Scalar(0,255,0), 2, CV_AA);
 	}
 	

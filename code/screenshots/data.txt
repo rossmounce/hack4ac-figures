@@ -1,0 +1,46 @@
+Fig1:
+Number of Lines Detected 60
+xaxis[153, 575, 698, 575]
+yaxis[153, 86, 153, 575]
+Number of Lines Within Axes 18
+Number of Vertical Lines Within Axes 5
+Number of Parts of Bars: 4
+The Bars:
+num	Rel	*0.6	*1.2	*25
+0	0.170757	0.102454	0.204908	4.26892
+1	0.674847	0.404908	0.809816	16.8712
+libpng warning: iCCP: profile 'icc': 'RGB ': RGB color space not permitted on grayscale PNG
+
+Fig2:
+Number of Lines Detected 37
+xaxis[229, 614, 1323, 614]
+yaxis[229, 17, 229, 614]
+Number of Lines Within Axes 22
+Number of Vertical Lines Within Axes 6
+Number of Parts of Bars: 6
+The Bars:
+num	Rel	*0.6	*1.2	*25
+0	0.880235	0.528141	1.05628	22.0059
+1	0.826633	0.49598	0.99196	20.6658
+2	0.595477	0.357286	0.714573	14.8869
+
+
+Fig3:
+Number of Lines Detected 63
+xaxis[71, 316, 968, 316]
+yaxis[71, 39, 71, 316]
+Number of Lines Within Axes 40
+Number of Vertical Lines Within Axes 18
+Number of Parts of Bars: 18
+The Bars:
+num	Rel	*0.6	*1.2	*25
+0	0.218412	0.131047	0.262094	5.46029
+1	0.480144	0.288087	0.576173	12.0036
+2	0.599278	0.359567	0.719134	14.9819
+3	0.833935	0.500361	1.00072	20.8484
+4	0.720217	0.43213	0.86426	18.0054
+5	0.841155	0.504693	1.00939	21.0289
+6	0.754513	0.452708	0.905415	18.8628
+7	0.319495	0.191697	0.383394	7.98736
+8	0.400722	0.240433	0.480866	10.0181
+complete
