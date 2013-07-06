@@ -5,9 +5,11 @@ Repository for the hack4ac figures-to-data team working on histograms and bar ch
 
 Team Members:
 
-Vincent Adam (vincentadam87)
-Thomas Branch (twighk)
-Peter Murray-Rust (petermr)
+Vincent Adam (vincentadam87), 
+Thomas Branch (twighk), 
+Peter Murray-Rust (petermr), 
 Ross Mounce (rossmounce)
+
+[![Picture](https://github.com/rossmounce/hack4ac-figures/blob/master/the-team.jpg?raw=true)]
 
 Notes made during the hack: http://beta.etherpad.org/p/hack4ac_figures_to_data
